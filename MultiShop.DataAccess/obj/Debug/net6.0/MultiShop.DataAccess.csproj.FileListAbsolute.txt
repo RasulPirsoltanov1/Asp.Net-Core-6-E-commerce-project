@@ -1,0 +1,17 @@
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.DataAccess\bin\Debug\net6.0\MultiShop.DataAccess.deps.json
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.DataAccess\bin\Debug\net6.0\MultiShop.DataAccess.runtimeconfig.json
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.DataAccess\bin\Debug\net6.0\MultiShop.DataAccess.dll
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.DataAccess\bin\Debug\net6.0\MultiShop.DataAccess.pdb
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.DataAccess\bin\Debug\net6.0\MultiShop.Core.dll
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.DataAccess\bin\Debug\net6.0\MultiShop.Core.pdb
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.DataAccess\obj\Debug\net6.0\MultiShop.DataAccess.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.DataAccess\obj\Debug\net6.0\MultiShop.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.DataAccess\obj\Debug\net6.0\MultiShop.DataAccess.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.DataAccess\obj\Debug\net6.0\MultiShop.DataAccess.AssemblyInfo.cs
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.DataAccess\obj\Debug\net6.0\MultiShop.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.DataAccess\obj\Debug\net6.0\MultiShop.DataAccess.csproj.CopyComplete
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.DataAccess\obj\Debug\net6.0\MultiShop.DataAccess.dll
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.DataAccess\obj\Debug\net6.0\refint\MultiShop.DataAccess.dll
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.DataAccess\obj\Debug\net6.0\MultiShop.DataAccess.pdb
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.DataAccess\obj\Debug\net6.0\MultiShop.DataAccess.genruntimeconfig.cache
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.DataAccess\obj\Debug\net6.0\ref\MultiShop.DataAccess.dll

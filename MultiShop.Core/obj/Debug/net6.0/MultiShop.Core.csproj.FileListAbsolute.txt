@@ -1,0 +1,12 @@
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Core\bin\Debug\net6.0\MultiShop.Core.deps.json
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Core\bin\Debug\net6.0\MultiShop.Core.dll
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Core\bin\Debug\net6.0\MultiShop.Core.pdb
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Core\obj\Debug\net6.0\MultiShop.Core.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Core\obj\Debug\net6.0\MultiShop.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Core\obj\Debug\net6.0\MultiShop.Core.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Core\obj\Debug\net6.0\MultiShop.Core.AssemblyInfo.cs
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Core\obj\Debug\net6.0\MultiShop.Core.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Core\obj\Debug\net6.0\MultiShop.Core.dll
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Core\obj\Debug\net6.0\refint\MultiShop.Core.dll
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Core\obj\Debug\net6.0\MultiShop.Core.pdb
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Core\obj\Debug\net6.0\ref\MultiShop.Core.dll

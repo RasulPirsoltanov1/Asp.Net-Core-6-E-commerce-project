@@ -1,0 +1,17 @@
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Business\bin\Debug\net6.0\MultiShop.Business.deps.json
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Business\bin\Debug\net6.0\MultiShop.Business.dll
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Business\bin\Debug\net6.0\MultiShop.Business.pdb
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Business\obj\Debug\net6.0\MultiShop.Business.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Business\obj\Debug\net6.0\MultiShop.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Business\obj\Debug\net6.0\MultiShop.Business.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Business\obj\Debug\net6.0\MultiShop.Business.AssemblyInfo.cs
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Business\obj\Debug\net6.0\MultiShop.Business.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Business\obj\Debug\net6.0\MultiShop.Business.dll
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Business\obj\Debug\net6.0\refint\MultiShop.Business.dll
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Business\obj\Debug\net6.0\MultiShop.Business.pdb
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Business\obj\Debug\net6.0\ref\MultiShop.Business.dll
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Business\bin\Debug\net6.0\MultiShop.Core.dll
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Business\bin\Debug\net6.0\MultiShop.DataAccess.dll
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Business\bin\Debug\net6.0\MultiShop.Core.pdb
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Business\bin\Debug\net6.0\MultiShop.DataAccess.pdb
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop.Business\obj\Debug\net6.0\MultiShop.Business.csproj.CopyComplete
