@@ -1,0 +1,28 @@
+﻿@using MultiShop.Business.ViewModels
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@model CategoryCreateVM
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Create Category</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form method="Post" asp-action="Update">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Category Name</label>
+                <input type="text" asp-for="Name" class="form-control" placeholder="Enter Name">
+                <span class="text-red" asp-validation-for="Name"></span>
+            </div>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
