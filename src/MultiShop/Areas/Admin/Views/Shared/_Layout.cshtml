@@ -25,9 +25,9 @@
     <link rel="stylesheet" href="~/admin/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="~/admin/plugins/summernote/summernote-bs4.min.css">
-      <link rel="stylesheet" href="~/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="~/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="~/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -211,15 +211,15 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
-                        <li class="nav-item menu-open">
-                            <a href="~/admin/#" class="nav-link active">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <li class="nav-item">
+                            <a href="~/admin/#" class="nav-link ">
+                                <i class="fas fa-copyright  fa-2x"></i>
                                 <p>
                                     Categories
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
+                            <ul class="nav nav-treeview" style="margin-left:35px;">
                                 <li class="nav-item">
                                     <a asp-controller="Category" asp-action="Index" class="nav-link">
                                         <i class="fas fa-list"></i>
@@ -234,7 +234,31 @@
                                 </li>
                             </ul>
                         </li>
-                      
+
+                        <li class="nav-item ">
+                            <a href="~/admin/#" class="nav-link ">
+                                <i class="fab fa-product-hunt  fa-2x"></i>
+                                <p>
+                                    Products
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview" style="margin-left:35px;">
+                                <li class="nav-item">
+                                    <a asp-controller="Product" asp-action="Index" class="nav-link">
+                                        <i class="fas fa-list"></i>
+                                        <p>All Products</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Product" asp-action="Create" class="nav-link">
+                                        <i class="fas fa-plus"></i>
+                                        <p>Create Product</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

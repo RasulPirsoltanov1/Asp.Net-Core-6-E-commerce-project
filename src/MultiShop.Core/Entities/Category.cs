@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MultiShop.Core.Base;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MultiShop.Core.Entities
 {
-    public class Category
+    public class Category:BaseEntity
     {
         public int Id { get; set; }
         public string? Name { get; set; }

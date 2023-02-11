@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@model Product
+<div class="card" style="width: 100%;">
+    <img style="width: 30%;" src="~/uploads/Product_Images/@Model.Images[0].Url" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text">@Model.Price</p>
+        <p class="card-text">@Model.Category.Name</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+<h2>Gallery</h2>
+<div class="container d-flex justify-content-start">
+    @foreach (var item in Model.Images)
+    {
+        <div class="card " style="width: 33%; margin:20px;">
+            <img src="~/uploads/Product_Images/@item.Url"  class="card-img-top" alt="...">
+            <div class="card-body">
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    }
+</div>
+
+
+

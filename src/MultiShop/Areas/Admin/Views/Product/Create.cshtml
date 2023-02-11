@@ -1,0 +1,80 @@
+﻿@using MultiShop.Business.ViewModels
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@model ProductCreateVM
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Create Category</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form method="Post" enctype="multipart/form-data">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Image</label>
+                <input type="file" multiple name="images"  class="form-control" placeholder="Enter Name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Category Name</label>
+                <input type="text" asp-for="Name" class="form-control" placeholder="Enter Name">
+                <span class="text-red" asp-validation-for="Name"></span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Product Price</label>
+                <input type="text" asp-for="Price" class="form-control" placeholder="Enter Name">
+                <span class="text-red" asp-validation-for="Price"></span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Product Quantity</label>
+                <input type="text" asp-for="Quantity" class="form-control" placeholder="Enter Name">
+                <span class="text-red" asp-validation-for="Quantity"></span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Product Quantity</label>
+                <input type="text" asp-for="Quantity" class="form-control" placeholder="Enter Name">
+                <span class="text-red" asp-validation-for="Quantity"></span>
+            </div>
+            <div class="form-group">
+                <textarea id="summernote"></textarea>
+                <script>
+                    $('#summernote').summernote({
+                        placeholder: 'Hello stand alone ui',
+                        tabsize: 2,
+                        height: 120,
+                        toolbar: [
+                            ['style', ['style']],
+                            ['font', ['bold', 'underline', 'clear']],
+                            ['color', ['color']],
+                            ['para', ['ul', 'ol', 'paragraph']],
+                            ['table', ['table']],
+                            ['insert', ['link', 'picture', 'video']],
+                            ['view', ['fullscreen', 'codeview', 'help']]
+                        ]
+                    });
+                </script>
+            </div>
+           
+            <div class="form-group">
+                <label for="exampleInputEmail1">Product Quantity</label>
+                <select asp-for="CategoryId" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                    @foreach (var category in (IEnumerable<Category>)ViewData["categories"])
+                    {
+                        <option value="@category.Id">@category.Name</option>
+                    }
+                </select>
+            </div>
+
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+

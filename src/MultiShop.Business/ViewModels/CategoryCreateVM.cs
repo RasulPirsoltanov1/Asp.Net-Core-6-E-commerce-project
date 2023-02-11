@@ -6,5 +6,6 @@ namespace MultiShop.Business.ViewModels
     {
         [Required,MinLength(3),MaxLength(256)]
         public string? Name { get; set; }
+
     }
 }
