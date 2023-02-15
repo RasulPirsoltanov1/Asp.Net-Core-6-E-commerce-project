@@ -6,9 +6,15 @@
 <div class="card" style="width: 100%;">
     <img style="width: 30%;" src="~/uploads/Product_Images/@Model.Images[0].Url" class="card-img-top" alt="...">
     <div class="card-body">
-        <h5 class="card-title">@Model.Name</h5>
+        <h5>Name</h5>
+        <p class="card-title">@Model.Name</p>
+        <br />
+        <h5>Price</h5>
         <p class="card-text">@Model.Price</p>
+        <h5>Category</h5>
         <p class="card-text">@Model.Category.Name</p>
+        <h5>Description</h5>
+        <p class="card-text">@Html.Raw(Model.Description)</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
 </div>

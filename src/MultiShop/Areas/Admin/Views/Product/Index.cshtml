@@ -15,6 +15,7 @@
                 <tr>
                     <td>Photo</td>
                     <th>Product name</th>
+                    <th>Product Category</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Actions</th>
@@ -26,6 +27,7 @@
                     <tr>
                         <td><img width="100px" src="~/uploads/Product_Images/@item.Images[0].Url" /></td>
                         <td>@item.Name</td>
+                        <td>@item.Category.Name</td>
                         <td>@item.Price</td>
                         <td>@item.Quantity</td>
                         <td>
