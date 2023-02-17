@@ -43,28 +43,21 @@
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
+                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">
+                            @User.Identity.Name User</button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">Sign in</button>
-                            <button class="dropdown-item" type="button">Sign up</button>
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <a asp-controller="Auth" asp-action="Login" class="dropdown-item" type="button">Sign in</a>
+                                <a asp-controller="Auth" asp-action="Register" class="dropdown-item" type="button">Sign up</a>
+                            }
+                     
+                            @if (User.Identity.IsAuthenticated){
+                                <a asp-controller="Auth" asp-action="Logout" class="dropdown-item" type="button">Log Out</a>
+                            }
                         </div>
                     </div>
-                    <div class="btn-group mx-2">
-                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">USD</button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">EUR</button>
-                            <button class="dropdown-item" type="button">GBP</button>
-                            <button class="dropdown-item" type="button">CAD</button>
-                        </div>
-                    </div>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">EN</button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">FR</button>
-                            <button class="dropdown-item" type="button">AR</button>
-                            <button class="dropdown-item" type="button">RU</button>
-                        </div>
-                    </div>
+          
                 </div>
                 <div class="d-inline-flex align-items-center d-block d-lg-none">
                     <a href="~/assets/" class="btn px-0 ml-2">
@@ -227,7 +220,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">
-                        <h5 class="text-secondary text-uppercase mb-4">My Account</h5>
+                        <h5 class="text-secondary text-uppercase mb-4">@User.Identity.Name!</h5>
                         <div class="d-flex flex-column justify-content-start">
                             <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
                             <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>

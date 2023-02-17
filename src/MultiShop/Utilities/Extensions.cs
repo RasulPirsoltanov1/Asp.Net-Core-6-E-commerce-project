@@ -25,6 +25,15 @@
             }
             return fileName;
         }
-       
+        public static async Task<string> Patcher(this IFormFile file, string wwwroot, params string[] route)
+        {
+            string resultPath = string.Empty;
+            foreach (var routeItem in route)
+            {
+                resultPath = Path.Combine(resultPath, routeItem);
+            }
+            return resultPath;
+        }
+
     }
 }

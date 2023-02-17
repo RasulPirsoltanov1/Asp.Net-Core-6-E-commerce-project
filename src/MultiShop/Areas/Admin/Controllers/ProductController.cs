@@ -66,6 +66,7 @@ namespace MultiShop.Areas.Admin.Controllers
                 Quantity = productCreateVM.Quantity,
                 CategoryId = productCreateVM.CategoryId,
                 Description = productCreateVM.Description,
+                Information = productCreateVM.Informaation,
             };
             newProduct.Images = productImages;
             _context.Products.Add(newProduct);

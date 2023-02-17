@@ -1,0 +1,13 @@
+﻿@using MultiShop.Business.ViewModels
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<UserVM>
+
+
+@foreach (var item in Model)
+{
+    <p>item.Email</p>
+}
+

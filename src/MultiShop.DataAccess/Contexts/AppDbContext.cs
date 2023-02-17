@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using MultiShop.Core.Entities;
 using MultiShop.DataAccess.Configurations;
 using System;
@@ -10,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace MultiShop.DataAccess.Contexts
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<AppUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -22,6 +24,8 @@ namespace MultiShop.DataAccess.Contexts
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductConfigurations).Assembly);
             modelBuilder.Entity<Product>().HasMany(p => p.Images).WithOne(i => i.Product).HasForeignKey(i => i.ProductId);
+            modelBuilder.Entity<IdentityUserLogin<string>>().HasNoKey();
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

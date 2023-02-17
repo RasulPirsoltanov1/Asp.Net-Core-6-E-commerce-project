@@ -271,3 +271,8 @@ C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop\bin\Debug\net6.0\Flue
 C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\user\Desktop\E-Commerce Project MVC\src\MultiShop\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll

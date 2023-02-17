@@ -21,6 +21,8 @@ namespace MultiShop.Business.ViewModels
         public int Quantity { get; set; }
         [Required,MinLength(4)]
         public string Description { get; set; }
+        [Required, MinLength(4)]
+        public string Informaation { get; set; }
         public bool IsDelete { get; set; } = false;
         [Required]
         public int CategoryId { get; set; }
