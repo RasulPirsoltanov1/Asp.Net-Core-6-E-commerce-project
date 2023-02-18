@@ -6,8 +6,53 @@
 @model IEnumerable<UserVM>
 
 
-@foreach (var item in Model)
-{
-    <p>item.Email</p>
-}
-
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">DataTable with default features</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>Photo</td>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @if(item.ProfilePhoto!=@"uploads\Users\Default\DefaultProfile.jpg"){
+                            <td><img width="100px" src="~/uploads/Users/@item.ProfilePhoto" /></td>
+                        }
+                        else{
+                            <td><img width="100px" src="~/@item.ProfilePhoto" /></td>
+                        }
+                        <td>@item.UserName</td>
+                        <td>@item.Email</td>
+                        <td>
+                            <form asp-controller="User" asp-action="Delete" asp-route-id=@item.Id method="post" style="display:inline;">
+                                <button class="btn btn-danger" type="submit">delete</button>
+                            </form>
+                            <a asp-action="Update" class="btn btn-info" asp-route-id="@item.Id">update</a>
+                            <a asp-action="Detail" class="btn btn-primary" asp-route-id="@item.Id">Detail</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Photo</td>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->
