@@ -11,7 +11,7 @@ namespace MultiShop.Areas.Admin.Controllers
     public class UserController : Controller
     {
         private readonly AppDbContext _context;
-        private UserManager<AppUser> _userManager;
+        private UserManager<AppUser> _userManager; 
 
         public UserController(UserManager<AppUser> userManager, AppDbContext context)
         {

@@ -50,7 +50,8 @@
                 <h3 class="font-weight-semi-bold mb-4">$@Model.Product.Price</h3>
                 <p class="mb-4">
                     <h5 style="display:inline">Category:</h5>
-                    @Model.Product.Category.Name </p>
+                    @Model.Product.Category.Name
+                </p>
                 <div class="d-flex mb-3">
                     <strong class="text-dark mr-3">Sizes:</strong>
                     <form>
@@ -146,7 +147,10 @@
                 <div class="nav nav-tabs mb-4">
                     <a class="nav-item nav-link text-dark active" data-toggle="tab" href="#tab-pane-1">Description</a>
                     <a class="nav-item nav-link text-dark " data-toggle="tab" href="#tab-pane-2">Information</a>
-                    <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
+                    @if (User.IsInRole("Admin") || User.IsInRole("Memmber") || User.IsInRole("Moderator"))
+                    {
+                        <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
+                    }
                 </div>
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="tab-pane-1">
@@ -215,14 +219,14 @@
     </div>
 </div>
 <!-- Shop Detail End -->
-                                     <!-- Products Start -->
-    <div class="container-fluid py-5">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">You May Also Like</span></h2>
-        <div class="row px-xl-5">
-            <div class="col">
-                <div class="owl-carousel related-carousel">
-                    @foreach (var item in Model.Products)
-                    {
+<!-- Products Start -->
+<div class="container-fluid py-5">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">You May Also Like</span></h2>
+    <div class="row px-xl-5">
+        <div class="col">
+            <div class="owl-carousel related-carousel">
+                @foreach (var item in Model.Products)
+                {
                     <div class="product-item bg-light">
                         <div class="product-img position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="~/uploads/Product_Images/@item.Images[0].Url" alt="">
@@ -249,9 +253,9 @@
                         </div>
                     </div>
                 }
-                   
-                </div>
+
             </div>
         </div>
     </div>
-    <!-- Products End -->
+</div>
+<!-- Products End -->

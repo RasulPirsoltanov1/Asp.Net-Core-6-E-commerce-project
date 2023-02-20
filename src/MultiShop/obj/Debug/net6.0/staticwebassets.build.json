@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jv7KPMQ1NN3XzXch/BcgBTYbZIqSByGJvWoguXgSqz4=",
+  "Hash": "oUHD7CGOLi4AliT8WHxhovjHzLQ1c1aKgZaFb7ZJEKc=",
   "Source": "MultiShop",
   "BasePath": "_content/MultiShop",
   "Mode": "Default",
@@ -43297,6 +43297,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\Product_Images\\117d8030-192f-430f-9e63-af8108a3d6dawp9364030-coding-motivation-wallpapers.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\E-Commerce Project MVC\\src\\MultiShop\\wwwroot\\uploads\\Product_Images\\151126ea-5d14-45ca-90b7-3f30a68fba46product-1.jpg",
+      "SourceId": "MultiShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\E-Commerce Project MVC\\src\\MultiShop\\wwwroot\\",
+      "BasePath": "_content/MultiShop",
+      "RelativePath": "uploads/Product_Images/151126ea-5d14-45ca-90b7-3f30a68fba46product-1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Product_Images\\151126ea-5d14-45ca-90b7-3f30a68fba46product-1.jpg"
     },
     {
       "Identity": "C:\\Users\\user\\Desktop\\E-Commerce Project MVC\\src\\MultiShop\\wwwroot\\uploads\\Product_Images\\2a658e21-4b7a-428a-b4a1-a78431d90350wp3695055-coding-motivation-wallpapers.png",

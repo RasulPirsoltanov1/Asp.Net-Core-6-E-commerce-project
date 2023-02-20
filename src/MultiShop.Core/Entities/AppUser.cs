@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace MultiShop.Core.Entities
 {
-    public class AppUser:IdentityUser
+    public class AppUser : IdentityUser
     {
-        public bool IsActive{ get; set; }
-        public string ProfilePhoto{ get; set; }
+        public bool IsActive { get; set; }
+        public string ProfilePhoto { get; set; }
+        public ICollection<Review> Reviews { get; set; }
     }
 }

@@ -30,6 +30,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 builder.Services.AddAutoMapper(typeof(CategoryMapper).Assembly);
 builder.Services.AddValidatorsFromAssemblyContaining<CategoryCreateVmValidator>();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminPolicy", policy => policy.RequireRole("Admin"));
+    options.AddPolicy("MemmberPolicy", policy => policy.RequireRole("Memmber"));
+});
 var app = builder.Build();
 
 app.UseAuthentication();
