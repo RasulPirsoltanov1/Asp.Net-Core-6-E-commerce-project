@@ -36,7 +36,8 @@ namespace MultiShop.Controllers
             {
                 return NotFound("Product not found.");
             }
-            var products = await _context.Products.Where(c => c.CategoryId == product.CategoryId).Include(i => i.Images).Include(i=> i.Category).ToListAsync();
+            var products = await _context.Products.Where(c => c.CategoryId == product.CategoryId).Include(i => i.Images).Include(c=>c.Reviews).Include(i=> i.Category).ToListAsync();
+            var reviewa = await _context.Reviews.Include(u => u.User).ToListAsync();
             HomeVM homeVM = new HomeVM()
             {
                 Categories = categories,

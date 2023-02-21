@@ -22,8 +22,5 @@ namespace MultiShop.Core.Entities
         public Category Category { get; set; }
         public List<Image> Images { get; set; }
         public ICollection<Review> Reviews { get; set; }
-
-
-
     }
 }

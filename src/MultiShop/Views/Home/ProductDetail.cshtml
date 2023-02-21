@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model HomeVM
-
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 
 
@@ -165,46 +165,63 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <h4 class="mb-4">1 review for "Product Name"</h4>
-                                <div class="media mb-4">
-                                    <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                                    <div class="media-body">
-                                        <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
-                                        <div class="text-primary mb-2">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half-alt"></i>
-                                            <i class="far fa-star"></i>
+                                @foreach (var item in Model.Product.Reviews)
+                                {
+                                    <div class="media mb-4">
+                                        <img src="~/uploads/Users/@item.User.ProfilePhoto" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                                        <div class="media-body">
+                                            <h6>@item.User.UserName<small> - <i>@item.Created_at</i></small></h6>
+                                            <div class="text-primary mb-2">
+                                                @for(int i=0;i<item.Rating;i++)
+                                                {
+                                                    <i class="fas fa-star"></i>
+                                                }
+                                            </div>
+                                            <p>@item.Comment</p>
                                         </div>
-                                        <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.</p>
                                     </div>
-                                </div>
+                                }
+                               
                             </div>
                             <div class="col-md-6">
                                 <h4 class="mb-4">Leave a review</h4>
                                 <small>Your email address will not be published. Required fields are marked *</small>
                                 <div class="d-flex my-3">
-                                    <p class="mb-0 mr-2">Your Rating * :</p>
-                                    <div class="text-primary">
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
+                                  
                                 </div>
-                                <form>
+                                <form asp-controller="Product" asp-action="CreateReview" method="post">
+
+                                    <input hidden asp-for="ReviewVM.ProductId" value="@Model.Product.Id"/>
+                                    <div class="star-rating">
+                                        <input id="star-5" type="radio" asp-for="ReviewVM.Rating" value="5">
+                                        <label for="star-5" title="5 stars">
+                                            5<i class="active fa fa-star"></i>
+                                        </label>
+                                        <input id="star-4" type="radio" asp-for="ReviewVM.Rating" value="4">
+                                        <label for="star-4" title="4 stars">
+                                            4<i class="active fa fa-star"></i>
+                                        </label>
+                                        <input id="star-3" type="radio" asp-for="ReviewVM.Rating" value="3">
+                                        <label for="star-3" title="3 stars">
+                                            3<i class="active fa fa-star"></i>
+                                        </label>
+                                        <input id="star-2" type="radio" asp-for="ReviewVM.Rating" value="2">
+                                        <label for="star-2" title="2 stars">
+                                            2<i class="active fa fa-star"></i>
+                                        </label>
+                                        <input id="star-1" type="radio" asp-for="ReviewVM.Rating"  value="1">
+                                        <label for="star-1" title="1 star">
+                                            1<i class="active fa fa-star"></i>
+                                        </label>
+                                    </div>
+                                    <script>
+                                        const ratingInput = document.querySelector('input[name="rating"]:checked');
+                                        const rating = ratingInput ? ratingInput.value : null;
+                                        console.log(rating);
+                                    </script>
                                     <div class="form-group">
                                         <label for="message">Your Review *</label>
-                                        <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name">Your Name *</label>
-                                        <input type="text" class="form-control" id="name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email">Your Email *</label>
-                                        <input type="email" class="form-control" id="email">
+                                        <textarea id="message" asp-for="ReviewVM.Comment" cols="30" rows="5" class="form-control"></textarea>
                                     </div>
                                     <div class="form-group mb-0">
                                         <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">

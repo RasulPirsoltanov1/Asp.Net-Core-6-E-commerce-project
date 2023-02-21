@@ -26,12 +26,8 @@ namespace MultiShop.DataAccess.Contexts
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductConfigurations).Assembly);
             modelBuilder.Entity<Product>().HasMany(p => p.Images).WithOne(i => i.Product).HasForeignKey(i => i.ProductId);
             modelBuilder.Entity<Review>().HasOne(r => r.User).WithMany(u => u.Reviews).HasForeignKey(r => r.UserId);
-            modelBuilder.Entity<Review>()
-       .HasOne(r => r.Product)
-       .WithMany(p => p.Reviews)
-       .HasForeignKey(r => r.ProductId);
+            modelBuilder.Entity<Review>().HasOne(r => r.Product).WithMany(p => p.Reviews).HasForeignKey(r => r.ProductId);
             modelBuilder.Entity<IdentityUserLogin<string>>().HasNoKey();
-
             base.OnModelCreating(modelBuilder);
         }
     }
