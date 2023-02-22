@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MultiShop.Areas.Admin.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "ModeratorPolicy,AdminPolicy")]
     [Area("Admin")]
     public class DashboardController : Controller
     {

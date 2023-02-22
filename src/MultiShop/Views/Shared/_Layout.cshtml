@@ -117,7 +117,7 @@
                         </div>*@
                         @foreach (var item in Model.Categories)
                         {
-                            <a href="~/assets/" class="nav-item nav-link">@item.Name</a>
+                            <a asp-controller="Category" asp-action="Index" asp-route-Id="@item.Id" class="nav-item nav-link">@item.Name</a>
                         }
                     </div>
                 </nav>

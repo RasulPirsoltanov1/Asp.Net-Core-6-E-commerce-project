@@ -36,25 +36,22 @@
 
                 <form method="post" enctype="multipart/form-data">
                     <div class="input-group mb-3">
-                   
-                        <input asp-for="roles[0]" class="form-control" placeholder="Profile Photo">
+                        <input type="hidden" name="userId" value="@Model.user.Id" />
+                   <label for="role">Choose Role</label>
+                        <select id="role" asp-for="roles[0]" style="width:100%">
+                            <option>Admin</option>
+                            <option>Moderator</option>
+                            <option>Memmber</option>
+                        </select>
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
                             </div>
                         </div>
                         <span asp-validation-for="roles" style="color:red"></span>
                     </div>
 
                     <div class="row">
-                        <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
+                     
                         <!-- /.col -->
                         <div class="col-4">
                             <button type="submit" class="btn btn-primary btn-block">Update</button>
@@ -62,12 +59,7 @@
                         <!-- /.col -->
                     </div>
                 </form>
-                <p class="mb-1">
-                    <a href="forgot-password.html">I forgot my password</a>
-                </p>
-                <p class="mb-0">
-                    <a href="register.html" class="text-center">Register a new membership</a>
-                </p>
+              
             </div>
             <!-- /.login-card-body -->
         </div>

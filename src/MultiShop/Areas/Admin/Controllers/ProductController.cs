@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MultiShop.Business.Services.Interfaces;
@@ -6,11 +7,14 @@ using MultiShop.Business.ViewModels;
 using MultiShop.Core.Entities;
 using MultiShop.DataAccess.Contexts;
 using MultiShop.Utilities;
+using System.IO;
 using System.Xml.Linq;
 
 namespace MultiShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Policy = "ModeratorPolicy,AdminPolicy")]
+
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
@@ -87,10 +91,21 @@ namespace MultiShop.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            var product = await _context.Products.FindAsync(id);
+            var product = await _context.Products.Include(i=>i.Images).FirstOrDefaultAsync(i=>i.Id==id);
             if (product == null)
             {
                 return RedirectToAction(nameof(NotFoundPage));
+            }
+            foreach (var item in product.Images)
+            {
+                string filePath = "uploads/Product_Images/" + item.Url;
+
+                // Check if the file exists
+                if (System.IO.File.Exists(filePath))
+                {
+                    // Delete the file
+                    System.IO.File.Delete(filePath);
+                }
             }
             _context.Products.Remove(product);
             await _context.SaveChangesAsync();

@@ -22,7 +22,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
     options.User.RequireUniqueEmail = true;
     options.Lockout.MaxFailedAccessAttempts = 5;
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(15);
-}).AddEntityFrameworkStores<AppDbContext>();
+}).AddRoleManager<RoleManager<IdentityRole>>().AddEntityFrameworkStores<AppDbContext>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
@@ -34,6 +34,8 @@ builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("AdminPolicy", policy => policy.RequireRole("Admin"));
     options.AddPolicy("MemmberPolicy", policy => policy.RequireRole("Memmber"));
+    options.AddPolicy("ModeratorPolicy", policy => policy.RequireRole("Moderator"));
+    options.AddPolicy("ModeratorPolicy,AdminPolicy", policy => policy.RequireRole("Moderator","Admin"));
 });
 var app = builder.Build();
 

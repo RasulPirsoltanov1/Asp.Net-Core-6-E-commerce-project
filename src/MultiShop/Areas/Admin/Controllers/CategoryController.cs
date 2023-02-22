@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MultiShop.Business.Exceptions;
 using MultiShop.Business.Services.Interfaces;
 using MultiShop.Business.ViewModels;
@@ -7,6 +8,8 @@ using MultiShop.Core.Entities;
 namespace MultiShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Policy = "AdminPolicy")]
+    [Authorize(Policy = "ModeratorPolicy")]
     public class CategoryController : Controller
     {
         private readonly ICategoryService _categoryService;
