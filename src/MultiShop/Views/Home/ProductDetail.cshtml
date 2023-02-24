@@ -147,10 +147,7 @@
                 <div class="nav nav-tabs mb-4">
                     <a class="nav-item nav-link text-dark active" data-toggle="tab" href="#tab-pane-1">Description</a>
                     <a class="nav-item nav-link text-dark " data-toggle="tab" href="#tab-pane-2">Information</a>
-                    @if (User.IsInRole("Admin") || User.IsInRole("Memmber") || User.IsInRole("Moderator"))
-                    {
                         <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-3">Reviews (@Model.Product.Reviews.Count())</a>
-                    }
                 </div>
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="tab-pane-1">
@@ -181,52 +178,55 @@
                                         </div>
                                     </div>
                                 }
-                               
                             </div>
                             <div class="col-md-6">
                                 <h4 class="mb-4">Leave a review</h4>
-                                <small>Your email address will not be published. Required fields are marked *</small>
+                                <small></small>
                                 <div class="d-flex my-3">
                                   
                                 </div>
-                                <form asp-controller="Product" asp-action="CreateReview" method="post">
+                                @if (User.IsInRole("Admin") || User.IsInRole("Memmber") || User.IsInRole("Moderator")){
+                                    <form asp-controller="Product" asp-action="CreateReview" method="post">
 
-                                    <input hidden asp-for="ReviewVM.ProductId" value="@Model.Product.Id"/>
-                                    <div class="star-rating">
-                                        <input id="star-5" type="radio" asp-for="ReviewVM.Rating" value="5">
-                                        <label for="star-5" title="5 stars">
-                                            5<i class="active fa fa-star"></i>
-                                        </label>
-                                        <input id="star-4" type="radio" asp-for="ReviewVM.Rating" value="4">
-                                        <label for="star-4" title="4 stars">
-                                            4<i class="active fa fa-star"></i>
-                                        </label>
-                                        <input id="star-3" type="radio" asp-for="ReviewVM.Rating" value="3">
-                                        <label for="star-3" title="3 stars">
-                                            3<i class="active fa fa-star"></i>
-                                        </label>
-                                        <input id="star-2" type="radio" asp-for="ReviewVM.Rating" value="2">
-                                        <label for="star-2" title="2 stars">
-                                            2<i class="active fa fa-star"></i>
-                                        </label>
-                                        <input id="star-1" type="radio" asp-for="ReviewVM.Rating"  value="1">
-                                        <label for="star-1" title="1 star">
-                                            1<i class="active fa fa-star"></i>
-                                        </label>
-                                    </div>
-                                    <script>
-                                        const ratingInput = document.querySelector('input[name="rating"]:checked');
-                                        const rating = ratingInput ? ratingInput.value : null;
-                                        console.log(rating);
-                                    </script>
-                                    <div class="form-group">
-                                        <label for="message">Your Review *</label>
-                                        <textarea id="message" asp-for="ReviewVM.Comment" cols="30" rows="5" class="form-control"></textarea>
-                                    </div>
-                                    <div class="form-group mb-0">
-                                        <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
-                                    </div>
-                                </form>
+                                        <input hidden asp-for="ReviewVM.ProductId" value="@Model.Product.Id" />
+                                        <div class="star-rating">
+                                            <input id="star-5" type="radio" asp-for="ReviewVM.Rating" value="5">
+                                            <label for="star-5" title="5 stars">
+                                                5<i class="active fa fa-star"></i>
+                                            </label>
+                                            <input id="star-4" type="radio" asp-for="ReviewVM.Rating" value="4">
+                                            <label for="star-4" title="4 stars">
+                                                4<i class="active fa fa-star"></i>
+                                            </label>
+                                            <input id="star-3" type="radio" asp-for="ReviewVM.Rating" value="3">
+                                            <label for="star-3" title="3 stars">
+                                                3<i class="active fa fa-star"></i>
+                                            </label>
+                                            <input id="star-2" type="radio" asp-for="ReviewVM.Rating" value="2">
+                                            <label for="star-2" title="2 stars">
+                                                2<i class="active fa fa-star"></i>
+                                            </label>
+                                            <input id="star-1" type="radio" asp-for="ReviewVM.Rating" value="1">
+                                            <label for="star-1" title="1 star">
+                                                1<i class="active fa fa-star"></i>
+                                            </label>
+                                        </div>
+                                        <script>
+                                            const ratingInput = document.querySelector('input[name="rating"]:checked');
+                                            const rating = ratingInput ? ratingInput.value : null;
+                                            console.log(rating);
+                                        </script>
+                                        <div class="form-group">
+                                            <label for="message">Your Review *</label>
+                                            <textarea id="message" asp-for="ReviewVM.Comment" cols="30" rows="5" class="form-control"></textarea>
+                                        </div>
+                                        <div class="form-group mb-0">
+                                            <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
+                                        </div>
+                                    </form>
+
+                                }
+
                             </div>
                         </div>
                     </div>

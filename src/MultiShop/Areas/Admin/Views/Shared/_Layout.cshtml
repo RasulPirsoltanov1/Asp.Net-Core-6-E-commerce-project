@@ -268,7 +268,26 @@
                                 </li>
                             </ul>
                         </li>
-
+                        @if(User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item ">
+                                <a href="~/admin/#" class="nav-link ">
+                                    <i class="fab fa-product-hunt  fa-2x"></i>
+                                    <p>
+                                        Users
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview" style="margin-left:35px;">
+                                    <li class="nav-item">
+                                        <a asp-controller="User" asp-action="Index" class="nav-link">
+                                            <i class="fas fa-list"></i>
+                                            <p>All Users</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -283,7 +302,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h1 class="m-0">@ViewData["Title"]</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">

@@ -14,6 +14,9 @@
     <form method="Post" asp-action="Update">
         <div class="card-body">
             <div class="form-group">
+                <label for="exampleInputEmail1">Category Image</label>
+                <input asp-for="Image" class="form-control" placeholder="Enter Name">
+                <span asp-validation-for="Image" style="text-align:red; display:block;"></span>
                 <label for="exampleInputEmail1">Category Name</label>
                 <input type="text" asp-for="Name" class="form-control" placeholder="Enter Name">
                 <span class="text-red" asp-validation-for="Name"></span>

@@ -57,10 +57,10 @@ namespace MultiShop.Business.Services.Implementations
             return categories;
         }
 
-        public async Task<CategoryCreateVM> GetByIdAsync(int id)
+        public async Task<CategoryUpdateVM> GetByIdAsync(int id)
         {
             var category = await _categoryRepository.GetByIdAsync(id);
-            var vievModel = _mapper.Map<CategoryCreateVM>(category);
+            var vievModel = _mapper.Map<CategoryUpdateVM>(category);
             return vievModel;
         }
 

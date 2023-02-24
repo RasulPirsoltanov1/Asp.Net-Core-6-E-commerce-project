@@ -4,21 +4,26 @@ using MultiShop.Business.Exceptions;
 using MultiShop.Business.Services.Interfaces;
 using MultiShop.Business.ViewModels;
 using MultiShop.Core.Entities;
+using MultiShop.DataAccess.Contexts;
+using MultiShop.Utilities;
 
 namespace MultiShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Policy = "AdminPolicy")]
-    [Authorize(Policy = "ModeratorPolicy")]
+    [Authorize(Policy = "ModeratorPolicy,AdminPolicy")]
     public class CategoryController : Controller
     {
         private readonly ICategoryService _categoryService;
+        private readonly AppDbContext _context;
+        private IWebHostEnvironment _env;
 
-        public CategoryController(ICategoryService categoryService)
+
+        public CategoryController(ICategoryService categoryService, AppDbContext context, IWebHostEnvironment env)
         {
             _categoryService = categoryService;
+            _context = context;
+            _env = env;
         }
-
         public IActionResult Index()
         {
             var categories = _categoryService.GetAll();
@@ -37,12 +42,22 @@ namespace MultiShop.Areas.Admin.Controllers
                 {
                     return View(categoryCreateVM);
                 }
-                await _categoryService.CreateAsync(categoryCreateVM);
+
+                string imageUrl = await categoryCreateVM.Image.SaveFileAsync(_env.WebRootPath, "wwwroot", "uploads", "Category");
+                Category category = new()
+                {
+                    Name = categoryCreateVM.Name,
+                    Image = imageUrl,
+                    created_at = DateTime.UtcNow,
+                };
+            //C: \Users\user\Desktop\E - Commerce Project MVC\src\MultiShop\wwwroot\uploads\Category\
+                await _context.AddAsync(category);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return BadRequest("Category cannot create.");
+                return BadRequest(ex.Message);
             }
         }
         [HttpPost]

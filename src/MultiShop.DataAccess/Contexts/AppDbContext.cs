@@ -21,6 +21,7 @@ namespace MultiShop.DataAccess.Contexts
         public DbSet<Product> Products { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<Setting> Settings{ get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductConfigurations).Assembly);

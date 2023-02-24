@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 
 namespace MultiShop.Business.ViewModels
 {
@@ -6,6 +7,8 @@ namespace MultiShop.Business.ViewModels
     {
         [Required,MinLength(3),MaxLength(256)]
         public string? Name { get; set; }
+        [Required]
+        public IFormFile? Image { get; set; }
 
     }
 }

@@ -12,9 +12,10 @@
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>Image</th>
                     <th>Category name</th>
                     <th>Created_at</th>
-                    <th>Updated_at</th>
+                    @*<th>Updated_at</th>*@
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -22,14 +23,15 @@
                 @foreach (var item in Model)
                 {
                     <tr>
+                        <td><img src="~/uploads/Category/@item.Image" width="100px"/></td>
                         <td>@item.Name</td>
                         <td>@item.created_at</td>
-                        <td>@item.updated_at</td>
+                        @*<td>@item.updated_at</td>*@
                         <td>
                             <form asp-action="Delete" asp-route-id=@item.Id method="post" style="display:inline;">
                                 <button class="btn btn-danger" type="submit" >delete</button>
                             </form>
-                            <a asp-action="Update" class="btn btn-info" asp-route-id="@item.Id">update</a>
+                            @*<a asp-action="Update" class="btn btn-info" asp-route-id="@item.Id">update</a>*@
                         </td>
                     </tr>
                 }
@@ -39,7 +41,7 @@
                 <tr>
                     <th>Category name</th>
                     <th>Created_at</th>
-                    <th>Updated_at</th>
+                    @*<th>Updated_at</th>*@
                     <th>Actions</th>
                 </tr>
             </tfoot>

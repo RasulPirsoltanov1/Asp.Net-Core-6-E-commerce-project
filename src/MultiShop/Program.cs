@@ -22,7 +22,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
     options.User.RequireUniqueEmail = true;
     options.Lockout.MaxFailedAccessAttempts = 5;
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(15);
-}).AddRoleManager<RoleManager<IdentityRole>>().AddEntityFrameworkStores<AppDbContext>();
+}).AddDefaultTokenProviders().AddRoleManager<RoleManager<IdentityRole>>().AddEntityFrameworkStores<AppDbContext>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {

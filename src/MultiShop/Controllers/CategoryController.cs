@@ -17,7 +17,7 @@ namespace MultiShop.Controllers
         public async Task<IActionResult> Index(int id)
         {
             var products = await _context.Products.Where(p => p.CategoryId == id).Include(i => i.Images).Include(r => r.Reviews).ToListAsync();
-            var categories = await _context.Categories.ToListAsync();
+            var categories = await _context.Categories.Include(p=>p.Products).ToListAsync();
             HomeVM homeVM = new()
             {
                 Categories= categories,

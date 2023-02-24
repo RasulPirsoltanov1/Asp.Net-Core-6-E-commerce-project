@@ -12,6 +12,7 @@ namespace MultiShop.Core.Entities
     public class Category:BaseEntity
     {
         public int Id { get; set; }
+        public string? Image{ get; set; }
         public string? Name { get; set; }
         public bool? IsDelete{ get; set; }=false;
         public DateTime? created_at { get; set; }
