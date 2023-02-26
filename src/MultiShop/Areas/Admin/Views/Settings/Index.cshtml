@@ -4,11 +4,10 @@
     ViewData["Title"] = "Site Settings";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-@model SettingsVM
+@model Setting
 <div class="card-header">
     <h3 class="card-title">Quick Set</h3>
     </div>
-<form asp-action="Index" method="post" enctype="multipart/form-data">
     <div class="card-body">
         <div class="form-group">
             <label for="exampleInputEmail1">Text</label>
@@ -58,23 +57,14 @@
                 </div>
 
 
-        <div class="form-group">
-            <label for="exampleInputFile">File input</label>
-            <div class="input-group">
-                <div class="custom-file">
-                    <input asp-for="SiteIcon" class="custom-file-input" id="exampleInputFile">
-                        <span asp-validation-for="SiteIcon" style="text-align:red;"></span>
-                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                </div>
-                <div class="input-group-append">
-                    <span class="input-group-text">Upload</span>
-                </div>
-            </div>
-        </div>
+    <div class="form-group">
+        <label for="exampleInputFile" style="display:block;">Site Icon</label>
+        <img src="~/uploads/@ViewData["SiteIcon"]" />
+    </div>
+</div>
     </div>
     <!-- /.card-body -->
 
     <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <a asp-action="Update" class="btn btn-primary">Update</a>
     </div>
-</form>

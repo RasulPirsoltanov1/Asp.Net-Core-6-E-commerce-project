@@ -18,7 +18,7 @@ namespace MultiShop.Business.Mappers
             CreateMap<Category, CategoryCreateVM>().ReverseMap();
             CreateMap<Category, CategoryUpdateVM>().ReverseMap();
             CreateMap<Product, ProductCreateVM>().ReverseMap();
-            CreateMap<Setting, SettingsVM>().ReverseMap();
+            CreateMap<Setting, SettingsUpdateVM>().ReverseMap();
         }
     }
 }

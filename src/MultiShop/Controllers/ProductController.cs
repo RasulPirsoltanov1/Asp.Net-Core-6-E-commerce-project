@@ -28,10 +28,19 @@ namespace MultiShop.Controllers
                 IsDelete = false,
                 Rating = homeVM.ReviewVM.Rating ?? 0,
                 Created_at = DateTime.UtcNow
-        };
+            };
             await _context.Reviews.AddAsync(review);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index","Home");
+
+            var productDetailParams = new ProductDetailParams()
+            {
+                id = homeVM.ReviewVM.ProductId,
+            };
+            return RedirectToAction("ProductDetail", "Home", productDetailParams);
         }
     }
+}
+public class ProductDetailParams
+{
+    public int id { get; set; }
 }

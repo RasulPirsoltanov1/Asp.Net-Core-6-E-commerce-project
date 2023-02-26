@@ -32,7 +32,7 @@ namespace MultiShop.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var products = await _context.Products.Include(p => p.Images).Include(c=>c.Category).ToListAsync();
+            var products = await _context.Products.Include(p => p.Images).Include(c => c.Category).ToListAsync();
             return View(_productService.GetAll());
         }
         public async Task<IActionResult> Create()
@@ -50,17 +50,29 @@ namespace MultiShop.Areas.Admin.Controllers
                 return View(productCreateVM);
             }
             var productImages = new List<Image>();
-            foreach (var image in images)
+            var imageUrl = string.Empty;
+            if (images.Count != 0)
             {
-
-                if (image.Length > 0)
+                foreach (var image in images)
                 {
-                    var imageUrl = await image.SaveFileAsync(_env.WebRootPath, "wwwroot", "uploads", "Product_Images");
-                    productImages.Add(new Image
+
+                    if (image.Length > 0)
                     {
-                        Url = imageUrl
-                    });
+                        imageUrl = await image.SaveFileAsync(_env.WebRootPath, "wwwroot", "uploads", "Product_Images");
+                        productImages.Add(new Image
+                        {
+                            Url = imageUrl
+                        });
+                    }
                 }
+            }
+            else
+            {
+                imageUrl = @"wwwroot/uploads/Product.png";
+                productImages.Add(new Image
+                {
+                    Url = imageUrl
+                });
             }
             Product newProduct = new Product()
             {
@@ -76,7 +88,6 @@ namespace MultiShop.Areas.Admin.Controllers
             _context.Products.Add(newProduct);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-
         }
         public async Task<IActionResult> Detail(int id)
         {
@@ -91,7 +102,7 @@ namespace MultiShop.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            var product = await _context.Products.Include(i=>i.Images).FirstOrDefaultAsync(i=>i.Id==id);
+            var product = await _context.Products.Include(i => i.Images).FirstOrDefaultAsync(i => i.Id == id);
             if (product == null)
             {
                 return RedirectToAction(nameof(NotFoundPage));

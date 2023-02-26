@@ -1,12 +1,14 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MultiShop.Business.ViewModels;
 using MultiShop.Core.Entities;
 using MultiShop.DataAccess.Contexts;
 using MultiShop.Utilities;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace MultiShop.Areas.Admin.Controllers
 {
@@ -29,44 +31,78 @@ namespace MultiShop.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             var settings = await _context.Settings.FindAsync(1);
-            var settingVM = _mapper.Map<SettingsVM>(settings);
-            return View(settingVM);
+            ViewData["SiteIcon"] = settings.SiteIcon;
+            return View(settings);
             //return View();
         }
+
+        public async Task<IActionResult> Update()
+        {
+            var settings = await _context.Settings.FindAsync(1);
+            ViewData["SiteIcon"] = settings.SiteIcon;
+            var settingsUpdateVM = _mapper.Map<SettingsUpdateVM>(settings);
+            //settingsUpdateVM.SiteIcon = null;
+            return View(settingsUpdateVM);
+        }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Index(SettingsVM settingsVM)
+        public async Task<IActionResult> Update(SettingsUpdateVM settingsVM,IFormFile? siteIcon)
         {
             try
             {
+                var oldSetting =await _context.Settings.FindAsync(1);
                 if (!ModelState.IsValid)
                 {
-                    return View(settingsVM);
+                    if (!TryValidateModel(settingsVM))
+                    {
+                        string errors = string.Empty;
+                        foreach (var key in ModelState.Keys)
+                        {
+                            if (ModelState[key].ValidationState == ModelValidationState.Invalid)
+                            {
+                                var errorMessages = ModelState[key].Errors.Select(e => e.ErrorMessage);
+                                errors += $"{key}: {string.Join(", ", errorMessages)}<br>";
+                            }
+                        }
+                        return Content(errors);
+                    }
                 }
-                var setting = _mapper.Map<Setting>(settingsVM);
-                if (settingsVM.SiteIcon != null)
+                settingsVM.Id = 1;
+                if (siteIcon != null)
                 {
-                    var imageUrl = await settingsVM.SiteIcon.SaveFileAsync(_env.WebRootPath, "wwwroot", "uploads", "Product_Images");
-                    setting.SiteIcon = imageUrl;
+                    var imageUrl = await siteIcon.SaveFileAsync(_env.WebRootPath, "wwwroot", "uploads");
 
-                    //string filePath = "uploads/" +imageUrl;
-
-                    //// Check if the file exists
-                    //if (System.IO.File.Exists(filePath))
-                    //{
-                    //    // Delete the file
-                    //    System.IO.File.Delete(filePath);
-                    //}
+                    string filePath = Path.Combine(_env.WebRootPath,"uploads",oldSetting.SiteIcon);
+                    oldSetting.SiteIcon = imageUrl;
+                    // Check if the file exists
+                    if (System.IO.File.Exists(filePath))
+                    {
+                        // Delete the file
+                        System.IO.File.Delete(filePath);
+                    }
                 }
-                setting.SiteIcon = null;
-                setting.Id = 1;
-                _context.Settings.Update(setting);
+                else
+                {
+                    oldSetting.SiteIcon = oldSetting.SiteIcon;
+                }
+                oldSetting.Text= settingsVM.Text;
+                oldSetting.Email= settingsVM.Email;
+                oldSetting.FacebookLink= settingsVM.FacebookLink;
+                oldSetting.InstagramLink= settingsVM.InstagramLink;
+                oldSetting.LinkedinLink= settingsVM.LinkedinLink;
+                oldSetting.Location = settingsVM.Location;
+                oldSetting.Phone = settingsVM.Phone;
+                oldSetting.SiteName = settingsVM.SiteName;
+                oldSetting.TwitterLink = settingsVM.TwitterLink;
+                _context.Settings.Update(oldSetting);
                 await _context.SaveChangesAsync();
-                return View();
+                return RedirectToAction(nameof(Update));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-               return BadRequest(ex.Message);
+                return Content(ex.Message);
             }
         }
     }

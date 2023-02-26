@@ -21,9 +21,11 @@ namespace MultiShop.Controllers
         {
             var categories= _categoryService.GetAll();
             var products =await _context.Products.Include(i=>i.Images).ToListAsync();
+            var settings=await _context.Settings.FindAsync(1);
             HomeVM homeVM = new HomeVM()
             {
-                Categories=categories,
+                Settings = settings,
+                Categories =categories,
                 Products=products
             };
             return View(homeVM);

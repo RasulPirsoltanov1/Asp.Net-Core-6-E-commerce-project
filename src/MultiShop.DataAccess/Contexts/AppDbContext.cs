@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using MultiShop.Core.Entities;
 using MultiShop.DataAccess.Configurations;
 using System;
@@ -16,6 +17,7 @@ namespace MultiShop.DataAccess.Contexts
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
+
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }

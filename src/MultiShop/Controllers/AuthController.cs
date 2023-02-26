@@ -17,12 +17,14 @@ namespace MultiShop.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly IServiceProvider serviceProvider;
-        public AuthController(IWebHostEnvironment env, UserManager<AppUser> userManager, IServiceProvider serviceProvider, SignInManager<AppUser> signInManager)
+        private readonly IConfiguration _config;
+        public AuthController(IWebHostEnvironment env, UserManager<AppUser> userManager, IServiceProvider serviceProvider, SignInManager<AppUser> signInManager, IConfiguration config)
         {
             _env = env;
             _userManager = userManager;
             this.serviceProvider = serviceProvider;
             _signInManager = signInManager;
+            _config = config;
         }
         public async Task<IActionResult> CreateAdmin()
         {
@@ -200,10 +202,10 @@ namespace MultiShop.Controllers
            
             var resetPasswordUrl = Url.Action("ResetPassword", "Auth", new { token, email = user.Email }, Request.Scheme);
 
-            var smtpClient = new SmtpClient("smtp.gmail.com", 587)
+            var smtpClient = new SmtpClient(_config.GetValue<string>("MailSettings:port"), _config.GetValue<int>("MailSettings:port"))
             {
                 UseDefaultCredentials = false,
-                Credentials = new NetworkCredential("testtestov123dot@gmail.com", "oyfckzirhzvuavev"),
+                Credentials = new NetworkCredential(_config.GetValue<string>("MailSettings:Mail"), _config.GetValue<string>("MailSettings:Verification")),
                 EnableSsl = true
             };
 
