@@ -18,9 +18,11 @@ namespace MultiShop.Controllers
         {
             var products = await _context.Products.Where(p => p.CategoryId == id).Include(i => i.Images).Include(r => r.Reviews).ToListAsync();
             var categories = await _context.Categories.Include(p=>p.Products).ToListAsync();
+            var settings = await _context.Settings.FindAsync(1);
             HomeVM homeVM = new()
             {
-                Categories= categories,
+                Settings= settings,
+                Categories = categories,
                 Products =products,
             };
             return View(homeVM);

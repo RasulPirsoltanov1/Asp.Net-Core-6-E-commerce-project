@@ -1,0 +1,40 @@
+﻿@using MultiShop.Business.ViewModels
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@model SliderCreateVM
+<form method="post" enctype="multipart/form-data" asp-action="Create">
+    <div class="card-body">
+        <h1>Slider Item Create</h1>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Title</label>
+            <input asp-for="Title" class="form-control" id="exampleInputEmail1" placeholder="Enter Title">
+            <span asp-validation-for="Title" style="text-align:red;"></span>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Title</label>
+            <input asp-for="Description" class="form-control" id="exampleInputEmail1" placeholder="Enter Description">
+            <span asp-validation-for="Description" style="text-align:red;"></span>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputFile">New Site Icon</label>
+            <div class="input-group">
+                <div class="custom-file">
+                    <input type="file" asp-for="Image" accept="Image" for class="custom-file-input" id="exampleInputFile">
+                    <label class="custom-file-label" for="exampleInputFile">Image</label>
+                </div>
+                <span asp-validation-for="Image" style="text-align:red;"></span>
+                <div class="input-group-append">
+                    <span class="input-group-text">Upload</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button type="submit"  class="btn btn-primary">Create</button>
+    </div>
+</form>
+
+

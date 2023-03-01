@@ -36,6 +36,7 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("MemmberPolicy", policy => policy.RequireRole("Memmber"));
     options.AddPolicy("ModeratorPolicy", policy => policy.RequireRole("Moderator"));
     options.AddPolicy("ModeratorPolicy,AdminPolicy", policy => policy.RequireRole("Moderator","Admin"));
+    options.AddPolicy("UserPolicy", policy => policy.RequireRole("Memmber","Moderator","Admin"));
 });
 var app = builder.Build();
 
